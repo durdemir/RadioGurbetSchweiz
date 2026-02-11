@@ -1,32 +1,49 @@
 #!/bin/bash
+set -euo pipefail
+REPO_ROOT="$(pwd)"
+SCRIPTS_DIR="$REPO_ROOT/09_YATIRIMCI/scripts"
+LOG="$REPO_ROOT/build-run.log"
+: > "$LOG"
+echo "Build started: $(date)" | tee -a "$LOG"
 
-echo "📻 Radio Gurbet Schweiz – Build Pipeline Başladı"
+run_if_nonempty() {
+  if [ -s "$1" ]; then
+    echo "RUN: $1" | tee -a "$LOG"
+    if command -v python3 >/dev/null 2>&1; then
+      python3 "$1" >>"$LOG" 2>&1 || echo "ERROR: $1 failed" | tee -a "$LOG"
+    else
+      echo "ERROR: python3 not found" | tee -a "$LOG"
+      return 1
+    fi
+  else
+    echo "SKIP (missing or empty): $1" | tee -a "$LOG"
+  fi
+}
 
-# Versiyon numarası
-VERSION=$(date +"%Y.%m.%d_%H%M")
-echo "📌 Version: $VERSION"
+# Known scripts (use actual filenames present in repo)
+run_if_nonempty "$SCRIPTS_DIR/generate_metadata_json.py"
+run_if_nonempty "$SCRIPTS_DIR/generate_podcast_covers.py"
+run_if_nonempty "$SCRIPTS_DIR/generate_readme.py"
+run_if_nonempty "$SCRIPTS_DIR/generate_social_posts.py"
+run_if_nonempty "$SCRIPTS_DIR/generate_web_banners.py"
+run_if_nonempty "$SCRIPTS_DIR/logo.py"
+run_if_nonempty "$SCRIPTS_DIR/pdf_cover.py"
+run_if_nonempty "$SCRIPTS_DIR/split_ppt.py"
+run_if_nonempty "$SCRIPTS_DIR/versioning.py"
 
-# Script path
-SCRIPT_DIR="09_YATIRIMCI/scripts"
+# Fallback: run any other non-empty .py files not listed above
+while IFS= read -r f; do
+  run_if_nonempty "$f"
+done < <(find "$SCRIPTS_DIR" -maxdepth 1 -type f -iname "*.py" -print | grep -v -E "generate_metadata_json.py|generate_podcast_covers.py|generate_readme.py|generate_social_posts.py|generate_web_banners.py|logo.py|pdf_cover.py|split_ppt.py|versioning.py" || true)
 
-# Scriptleri çalıştır
-python3 $SCRIPT_DIR/01_generate_json.py
-python3 $SCRIPT_DIR/02_generate_covers.py
-python3 $SCRIPT_DIR/03_generate_readme.py
-python3 $SCRIPT_DIR/04_generate_social_posts.py
-python3 $SCRIPT_DIR/generate_web_banners.py
-python3 $SCRIPT_DIR/logo.py
-python3 $SCRIPT_DIR/opt_cover.py
-python3 $SCRIPT_DIR/split.ppt.py
+# Ensure VERSION.txt
+mkdir -p "$SCRIPTS_DIR"
+echo "Version: $(date +%Y.%m.%d_%H%M)" > "$SCRIPTS_DIR/VERSION.txt"
+echo "Wrote VERSION.txt" | tee -a "$LOG"
 
-# Versiyon dosyası
-echo "Version: $VERSION" > $SCRIPT_DIR/VERSION.txt
+# Git: add, commit, push (best-effort)
+git add . >>"$LOG" 2>&1 || true
+git commit -m "Build: automated $(date +%Y.%m.%d_%H%M)" >>"$LOG" 2>&1 || echo "No changes to commit" | tee -a "$LOG"
+git push origin main --tags >>"$LOG" 2>&1 || echo "Push failed (check network/auth)" | tee -a "$LOG"
 
-# Git işlemleri
-git add .
-git commit -m "Build: $VERSION – Otomatik Üretim tamamlandı"
-git tag "v$VERSION"
-git push origin main --tags
-
-echo "✅ Build tamamlandı ve Github'a yüklendi"
-
+echo "Build finished: $(date)" | tee -a "$LOG"

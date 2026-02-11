@@ -1,0 +1,44 @@
+Build started: Mi. 11 Feb. 2026 22:27:56 CET
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_metadata_json.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_podcast_covers.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_readme.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_social_posts.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_web_banners.py
+RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/logo.py
+RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/pdf_cover.py
+RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py
+Traceback (most recent call last):
+  File "/Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py", line 20, in <module>
+    split_ppt("GURBET_RADIO_PITCH_DECK.pptx")
+  File "/Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py", line 5, in split_ppt
+    prs = Presentation(input_file)
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/api.py", line 31, in Presentation
+    presentation_part = Package.open(pptx).main_document_part
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/package.py", line 82, in open
+    return cls(pkg_file)._load()
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/package.py", line 160, in _load
+    pkg_xml_rels, parts = _PackageLoader.load(self._pkg_file, cast("Package", self))
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/package.py", line 190, in load
+    return cls(pkg_file, package)._load()
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/package.py", line 194, in _load
+    parts, xml_rels = self._parts, self._xml_rels
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/util.py", line 191, in __get__
+    value = self._fget(obj)
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/package.py", line 222, in _parts
+    content_types = self._content_types
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/util.py", line 191, in __get__
+    value = self._fget(obj)
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/package.py", line 207, in _content_types
+    return _ContentTypeMap.from_xml(self._package_reader[CONTENT_TYPES_URI])
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/serialized.py", line 38, in __getitem__
+    return self._blob_reader[pack_uri]
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/util.py", line 191, in __get__
+    value = self._fget(obj)
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/serialized.py", line 52, in _blob_reader
+    return _PhysPkgReader.factory(self._pkg_file)
+  File "/Users/odu/Library/Python/3.9/lib/python/site-packages/pptx/opc/serialized.py", line 144, in factory
+    raise PackageNotFoundError("Package not found at '%s'" % pkg_file)
+pptx.exc.PackageNotFoundError: Package not found at 'GURBET_RADIO_PITCH_DECK.pptx'
+ERROR: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py failed
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/versioning.py
+Wrote VERSION.txt
