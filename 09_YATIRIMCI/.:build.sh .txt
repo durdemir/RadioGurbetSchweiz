@@ -1,0 +1,38 @@
+#!/bin/zsh
+
+echo "🚀 Gurbet Radio Schweiz — Build Süreci Başlıyor..."
+
+# 1) Marka adı
+PROJECT_NAME="Gurbet Radio Schweiz"
+echo "🔧 Marka adı: $PROJECT_NAME"
+
+# 2) Final klasör yapısı
+echo "📁 Klasör yapısı hazırlanıyor..."
+mkdir -p FINAL_OUTPUT/KURUMSAL_KIMLIK
+mkdir -p FINAL_OUTPUT/PITCH_DECK
+mkdir -p FINAL_OUTPUT/DIGRIS
+
+# 3) Digris PDF üretimi
+echo "📄 Digris PDF oluşturuluyor..."
+cp *.md DIGRIS_BASVURU/
+cd DIGRIS_BASVURU
+pandoc *.md -o DIGRIS_BASVURU_FINAL.pdf
+cp DIGRIS_BASVURU_FINAL.pdf ../FINAL_OUTPUT/DIGRIS/
+cd ..
+
+# 4) Pitch Deck optimize et
+echo "📊 Pitch Deck optimize ediliyor..."
+cp GURBET_RADIO_PITCH_DECK.pdf FINAL_OUTPUT/PITCH_DECK/"${PROJECT_NAME}_PITCH_DECK.pdf"
+cp GURBET_RADIO_PITCH_DECK.pptx FINAL_OUTPUT/PITCH_DECK/"${PROJECT_NAME}_PITCH_DECK.pptx"
+
+# 5) Kurumsal kimlik seti
+echo "🎨 Kurumsal kimlik seti hazırlanıyor..."
+echo "$PROJECT_NAME — Kurumsal Kimlik Seti" > FINAL_OUTPUT/KURUMSAL_KIMLIK/README.txt
+echo "Renk paleti, tipografi, logo yönergeleri bu klasörde yer alacaktır." >> FINAL_OUTPUT/KURUMSAL_KIMLIK/README.txt
+touch FINAL_OUTPUT/KURUMSAL_KIMLIK/RENK_PALETI.txt
+touch FINAL_OUTPUT/KURUMSAL_KIMLIK/TIPOGRAFI.txt
+touch FINAL_OUTPUT/KURUMSAL_KIMLIK/LOGO_NOTLARI.txt
+
+# 6) Final mesaj
+echo "🎉 Build tamamlandı!"
+echo "📦 Tüm çıktılar: FINAL_OUTPUT klasöründe"

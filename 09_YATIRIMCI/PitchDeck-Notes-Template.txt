@@ -1,0 +1,4 @@
+Sunum Notları:
+- Giriş
+- Finansal Özet
+- Soru-Cevap

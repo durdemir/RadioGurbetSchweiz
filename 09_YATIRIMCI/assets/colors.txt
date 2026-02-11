@@ -1,0 +1,5 @@
+# Gurbet Radio Schweiz Renk Paleti
+Kırmızı: #E63946
+Koyu Gri: #111111
+Açık Gri: #F1FAEE
+

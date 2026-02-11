@@ -1,0 +1,5 @@
+Stüdyo Kurulum Planı:
+- Ekipman Listesi
+- Bağlantı Şeması
+- Ses Ayarları
+- Yedekleme Planı

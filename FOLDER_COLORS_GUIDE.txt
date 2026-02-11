@@ -1,0 +1,15 @@
+OneDrive Renk Kodları:
+
+00_ADMIN – Kırmızı
+01_FINANS – Sarı
+02_YAYIN – Mavi
+03_MUZIK_TELIF – Mor
+04_MARKETING – Turuncu
+05_BRANDING – Yeşil
+06_STUDYO – Gri
+07_TEKNIK – Siyah
+08_SATIS – Kahverengi
+09_YATIRIMCI – Koyu Kırmızı
+10_ARSIV – Açık Mavi
+
+Not: Renkler sadece OneDrive Web arayüzünden atanabilir.

@@ -1,0 +1,4 @@
+Teknik Doküman:
+- Encoder Ayarları
+- Digris Teknik Bilgiler
+- Monitoring Araçları
