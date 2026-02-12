@@ -2,6 +2,7 @@
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 SCRIPTS_DIR="$REPO_ROOT/09_YATIRIMCI/scripts"
+OUT_ROOT="$REPO_ROOT/BUILD_OUTPUT"
 LOG="$REPO_ROOT/build-run.log"
 : > "$LOG"
 echo "Build started: $(date)" | tee -a "$LOG"
