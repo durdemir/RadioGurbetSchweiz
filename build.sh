@@ -1,55 +1,45 @@
 #!/bin/bash
 set -euo pipefail
 
-# === PATHS ===
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
-SCRIPTS_DIR="$REPO_ROOT/09_YATIRIMCI/scripts"
-OUT_ROOT="$REPO_ROOT/BUILD_OUTPUT"
+SCRIPTS_DIR="$REPO_ROOT/scripts"
 LOG="$REPO_ROOT/build-run.log"
 
-mkdir -p "$OUT_ROOT/logs" "$OUT_ROOT/assets" "$OUT_ROOT/slides" "$OUT_ROOT/packages"
-> "$LOG"
+echo "Build started: $(date)" | tee "$LOG"
 
-echo "Build started: $(date)" | tee -a "$LOG"
-
-# === FUNCTION: run_if_nonempty ===
-run_if_nonempty() {
+run() {
   local script="$1"
   if [[ -s "$script" ]]; then
     echo "RUN: $script" | tee -a "$LOG"
-    if command -v python3 >/dev/null 2>&1; then
-      python3 "$script" >>"$LOG" 2>&1 || {
-        echo "ERROR: $script failed" | tee -a "$LOG"
-        return 1
-      }
-    else
-      echo "ERROR: python3 not found" | tee -a "$LOG"
-      return 1
-    fi
+    python3 "$script" >>"$LOG" 2>&1 || {
+      echo "ERROR in $script" | tee -a "$LOG"
+      exit 1
+    }
   else
     echo "SKIP (missing or empty): $script" | tee -a "$LOG"
   fi
 }
 
-# === RUN SCRIPTS IN ORDER ===
-run_if_nonempty "$SCRIPTS_DIR/logo.py"
-run_if_nonempty "$SCRIPTS_DIR/pdf_cover.py"
-run_if_nonempty "$SCRIPTS_DIR/split_ppt.py"
+# === MASTER PIPELINE ===
+run "$SCRIPTS_DIR/admin.py"
+run "$SCRIPTS_DIR/finans.py"
+run "$SCRIPTS_DIR/yayin.py"
+run "$SCRIPTS_DIR/muzik_telif.py"
+run "$SCRIPTS_DIR/marketing.py"
+run "$SCRIPTS_DIR/branding.py"
+run "$SCRIPTS_DIR/studyo.py"
+run "$SCRIPTS_DIR/teknik.py"
+run "$SCRIPTS_DIR/satis.py"
+run "$SCRIPTS_DIR/investor.py"
+run "$SCRIPTS_DIR/arsiv.py"
 
+# === VERSION ===
+echo "Version: $(date +%Y.%m.%d_%H%M)" > "$REPO_ROOT/VERSION.txt"
 
-# === FALLBACK: run any other .py files ===
-while IFS= read -r f; do
-  run_if_nonempty "$f"
-done < <(find "$SCRIPTS_DIR" -maxdepth 1 -type f -iname '*.py')
-
-# === VERSION FILE ===
-echo "Version: $(date +%Y.%m.%d_%H%M)" > "$SCRIPTS_DIR/VERSION.txt"
-echo "Wrote VERSION.txt" | tee -a "$LOG"
-
-# === GIT COMMIT + PUSH ===
+# === GIT ===
 git add . >>"$LOG" 2>&1 || true
-git commit -m "Build automated $(date +%Y.%m.%d_%H%M)" >>"$LOG" 2>&1 || echo "No changes to commit" | tee -a "$LOG"
-git push origin main >>"$LOG" 2>&1 || echo "Push failed (check network/auth)" | tee -a "$LOG"
+git commit -m "Auto build $(date +%Y.%m.%d_%H%M)" >>"$LOG" 2>&1 || true
+git push origin main >>"$LOG" 2>&1 || true
 
 echo "Build finished: $(date)" | tee -a "$LOG"
 

@@ -1,14 +1,12 @@
-Build started: Do. 12 Feb. 2026 11:19:49 CET
-RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/logo.py
-RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/pdf_cover.py
-RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_podcast_covers.py
-RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_web_banners.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_readme.py
-RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/logo.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/versioning.py
-RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/pdf_cover.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_social_posts.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_metadata_json.py
-Wrote VERSION.txt
+Build started: Do. 12 Feb. 2026 12:52:17 CET
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/admin.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/finans.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/yayin.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/muzik_telif.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/marketing.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/branding.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/studyo.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/teknik.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/satis.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/investor.py
+SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/arsiv.py
