@@ -1,3 +1,4 @@
+
 #!/bin/zsh
 
 LOCAL_SLIDES_DIR="$HOME/Documents/GurbetRadioBuild/SLIDES"
@@ -61,4 +62,73 @@ zip -r "${PROJECT_NAME}_FINAL.zip" FINAL_OUTPUT/
 
 echo "🎉 Build tamamlandı!"
 echo "📦 Final paket hazır: ${PROJECT_NAME}_FINAL.zip"
+
+#!/bin/bash
+
+set -e
+
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+LOG_FILE="$ROOT_DIR/build-run.log"
+
+log() {
+    echo "[INFO] $1"
+    echo "[INFO] $1" >> "$LOG_FILE"
+}
+
+run_logo() {
+    log "LOGO çalışıyor..."
+    python3 "$ROOT_DIR../05_BRANDING/scripts/generate_logo.py"
+
+
+run_pdf() {
+    log "PDF COVER çalışıyor..."
+    python3 "$ROOT_DIR/../05_BRANDING/scripts/generate_cover.py"
+}
+
+run_slides() {
+    log "SLIDES çalışıyor..."
+    python3 "$ROOT_DIR/09_YATIRIMCI/scripts/split_ppt.py"
+}
+
+run_zip() {
+    log "ZIP paketleniyor..."
+    cd "$ROOT_DIR"
+    zip -r "GurbetRadio_Final.zip" FINAL_OUTPUT
+}
+
+run_push() {
+    log "Git push..."
+    cd "$ROOT_DIR"
+    git add .
+    git commit -m "Auto-build"
+    git push
+}
+
+run_all() {
+    log "FULL PIPELINE başlıyor..."
+    run_logo
+    run_pdf
+    run_slides
+    run_zip
+    run_push
+    log "FULL PIPELINE bitti."
+}
+
+case "$1" in
+    logo) run_logo ;;
+    pdf) run_pdf ;;
+    slides) run_slides ;;
+    zip) run_zip ;;
+    push) run_push ;;
+    all) run_all ;;
+    *)
+        echo "Kullanım:"
+        echo "./build.sh all"
+        echo "./build.sh logo"
+        echo "./build.sh pdf"
+        echo "./build.sh slides"
+        echo "./build.sh zip"
+        echo "./build.sh push"
+        ;;
+esac
 

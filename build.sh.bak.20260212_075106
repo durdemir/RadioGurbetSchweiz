@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(pwd)"
 SCRIPTS_DIR="$REPO_ROOT/09_YATIRIMCI/scripts"
 LOG="$REPO_ROOT/build-run.log"
 : > "$LOG"

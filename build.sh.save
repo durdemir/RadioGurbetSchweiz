@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(pwd)"
 SCRIPTS_DIR="$REPO_ROOT/09_YATIRIMCI/scripts"
 LOG="$REPO_ROOT/build-run.log"
 : > "$LOG"
@@ -30,6 +30,8 @@ run_if_nonempty "$SCRIPTS_DIR/logo.py"
 run_if_nonempty "$SCRIPTS_DIR/pdf_cover.py"
 run_if_nonempty "$SCRIPTS_DIR/split_ppt.py"
 run_if_nonempty "$SCRIPTS_DIR/versioning.py"
+run_if_nonempty "$REPO_ROOT/05_BRANDING/scripts/generate_logo.py"
+run_if_nonempty "$REPO_ROOT/05_BRANDING/scripts/generate_cover.py"
 
 # Fallback: run any other non-empty .py files not listed above
 while IFS= read -r f; do
