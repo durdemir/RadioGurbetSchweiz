@@ -32,15 +32,10 @@ run_if_nonempty() {
 }
 
 # === RUN SCRIPTS IN ORDER ===
-run_if_nonempty "$SCRIPTS_DIR/generate_metadata_json.py"
-run_if_nonempty "$SCRIPTS_DIR/generate_podcast_covers.py"
-run_if_nonempty "$SCRIPTS_DIR/generate_readme.py"
-run_if_nonempty "$SCRIPTS_DIR/generate_social_posts.py"
-run_if_nonempty "$SCRIPTS_DIR/generate_web_banners.py"
 run_if_nonempty "$SCRIPTS_DIR/logo.py"
 run_if_nonempty "$SCRIPTS_DIR/pdf_cover.py"
 run_if_nonempty "$SCRIPTS_DIR/split_ppt.py"
-run_if_nonempty "$SCRIPTS_DIR/versioning.py"
+
 
 # === FALLBACK: run any other .py files ===
 while IFS= read -r f; do

@@ -1,13 +1,7 @@
-Build started: Do. 12 Feb. 2026 11:04:32 CET
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_metadata_json.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_podcast_covers.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_readme.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_social_posts.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_web_banners.py
+Build started: Do. 12 Feb. 2026 11:19:49 CET
 RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/logo.py
 RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/pdf_cover.py
 RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py
-SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/versioning.py
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_podcast_covers.py
 RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_web_banners.py
