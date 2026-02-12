@@ -1,4 +1,4 @@
-Build started: Do. 12 Feb. 2026 10:15:58 CET
+Build started: Do. 12 Feb. 2026 10:18:18 CET
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_metadata_json.py
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_podcast_covers.py
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/generate_readme.py
@@ -9,21 +9,3 @@ RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/pdf
 RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/split_ppt.py
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/09_YATIRIMCI/scripts/versioning.py
 Wrote VERSION.txt
-[main a80a6ec] Build: automated 2026.02.12_1015
- Committer: Osman Durdemir <odu@MacBook-Air-von-Osman.local>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 85 files changed, 5 insertions(+), 5 deletions(-)
-To https://github.com/durdemir/RadioGurbetSchweiz.git
-   5f294c5..a80a6ec  main -> main
-Build finished: Do. 12 Feb. 2026 10:16:04 CET
