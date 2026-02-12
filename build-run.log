@@ -1,4 +1,4 @@
-Build started: Do. 12 Feb. 2026 13:29:49 CET
+Build started: Do. 12 Feb. 2026 16:04:42 CET
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/admin.py
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/finans.py
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/yayin.py
@@ -10,9 +10,12 @@ SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scri
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/satis.py
 RUN: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/investor.py
 Investor module running...
-Investor module finished.
-Investor module running...
-Investor module finished.
-Investor module running...
+Gerekli klasörleri oluşturuyor...
+PPT bulunamadı: /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/pitch_deck.pptx
+Kapak oluşturulamadı: slide_01.png bulunamadı.
+Metadata oluşturuluyor...
+Metadata oluşturuldu → /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/BUILD_OUTPUT/assets/metadata.json
+ZIP paketi oluşturuluyor...
+ZIP paketi oluşturuldu → /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/BUILD_OUTPUT/packages/INVESTOR_PACKAGE.zip
 Investor module finished.
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/arsiv.py
