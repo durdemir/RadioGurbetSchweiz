@@ -60,7 +60,16 @@ case "$CMD" in
   investor)
     ;;
   deploy)
+    echo "DEPLOY: packaging + git push"
+    mkdir -p "/BUILD_OUTPUT/packages"
+    PKG="/BUILD_OUTPUT/packages/RadioGurbetSchweiz_20 20 12 61 79 80 81 701 33 98 100 204 250 395 398 399 400date +%Y%m%d_%H%M%S).zip"
+    (cd "" && zip -r "" BUILD_OUTPUT 00_ADMIN 01_ADMIN 01_FINANS 02_YAYIN 03_MUZIK_TELIF 04_MARKETING 05_BRANDING 06_STUDYO 07_TEKNIK 08_SATIS 09_YATIRIMCI 10_ARSIV README.md 2>/dev/null || true)
+    echo "ZIP: "
+    git add -A
+    git commit -m "deploy: 20 20 12 61 79 80 81 701 33 98 100 204 250 395 398 399 400date +%Y-%m-%d_%H%M)" || true
+    git push origin main || true
     ;;
+
   *)
     echo "Usage: ./build.sh {all|branding|investor|deploy}"
     exit 2
