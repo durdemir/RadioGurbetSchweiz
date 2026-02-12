@@ -47,21 +47,3 @@ git commit -m "Build: automated $(date +%Y.%m.%d_%H%M)" >>"$LOG" 2>&1 || echo "N
 git push origin main --tags >>"$LOG" 2>&1 || echo "Push failed (check network/auth)" | tee -a "$LOG"
 
 echo "Build finished: $(date)" | tee -a "$LOG"
-
-# --- Command router (simple) ---
-CMD="${1:-all}"
-
-case "$CMD" in
-  all)
-    ;;
-  branding)
-    ;;
-  investor)
-    ;;
-  deploy)
-    ;;
-  *)
-    echo "Usage: ./build.sh {all|branding|investor|deploy}"
-    exit 2
-    ;;
-esac

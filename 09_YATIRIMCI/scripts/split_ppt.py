@@ -4,7 +4,7 @@ import os
 BASE = os.path.dirname(__file__)
 PPTX_PATH = os.path.join(BASE, "..", "GURBET_RADIO_PITCH_DECK.pptx")
 
-def split_ppt(input_file, output_dir="slides"):
+def split_ppt(input_file, output_dir="../../BUILD_OUTPUT/slides"):
     prs = Presentation(input_file)
     os.makedirs(output_dir, exist_ok=True)
 
