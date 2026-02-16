@@ -19,3 +19,21 @@ ZIP paketi oluşturuluyor...
 ZIP paketi oluşturuldu → /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/BUILD_OUTPUT/packages/INVESTOR_PACKAGE.zip
 Investor module finished.
 SKIP (missing or empty): /Users/odu/Projects/GurbetRadyo/RadioGurbetSchweiz/scripts/arsiv.py
+[main f6dbc11] Auto build 2026.02.12_1607
+ Committer: Osman Durdemir <odu@MacBook-Air-von-Osman.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/durdemir/RadioGurbetSchweiz.git
+   735da1f..f6dbc11  main -> main
+Build finished: Do. 12 Feb. 2026 16:07:52 CET
